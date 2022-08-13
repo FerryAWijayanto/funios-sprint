@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         let header = UIImageView(image: UIImage(named: "header"))
         view.addSubview(header)
         
+        // Ini bisa di refactor biar ngga ada pengulangan
+        // Bikin extension buat pin layout
         header.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             NSLayoutConstraint(item: header, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
@@ -27,6 +29,7 @@ class ViewController: UIViewController {
             NSLayoutConstraint(item: header, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.5, constant: 0)
         ])
         
+        // UIlabel yang sering ada pengulangan mending di jadiin default value yg sering di pake, contoh numberOfLines dll.
         let title = UILabel()
         title.text = "Let's Connect with each Other"
         title.numberOfLines = 0
