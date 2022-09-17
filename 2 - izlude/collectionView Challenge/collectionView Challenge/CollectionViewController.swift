@@ -9,14 +9,14 @@ import UIKit
 
 class CollectionViewController: UIViewController {
     
-    var pallete: UIColor?
+    let pallete: UIColor
     
     var collectionView: UICollectionView!
     let cellIdentifier = "CollectionCell"
     
-    init(pallete: UIColor?) {
-        super.init(nibName: nil, bundle: nil)
+    init(pallete: UIColor) {
         self.pallete = pallete
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -60,8 +60,8 @@ extension CollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) 
-        let alpha: CGFloat = 0.1 * CGFloat(indexPath.row+1)
-        cell.backgroundColor = pallete!.withAlphaComponent(alpha)
+        let alpha: CGFloat = 0.1 * CGFloat(indexPath.row + 1)
+        cell.backgroundColor = pallete.withAlphaComponent(alpha)
         
         return cell
     }
