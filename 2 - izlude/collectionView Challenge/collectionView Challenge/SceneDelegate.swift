@@ -17,12 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        //        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let home = TableViewController()
         
-        let nc = UINavigationController(rootViewController: home)
-        window?.rootViewController = nc
+        let navController = UINavigationController(rootViewController: home)
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }
 
